@@ -36,9 +36,6 @@ class HomeArtists extends StatelessWidget {
 
   Widget buildTile(BuildContext context, Artist artist) {
     return ListTile(
-      leading: CircleAvatar(
-        backgroundImage: AssetImage(artist.image.image),
-      ),
       title: Text(
         artist.updates.first,
         maxLines: 2,
@@ -50,6 +47,12 @@ class HomeArtists extends StatelessWidget {
         child: Text(artist.name, style: context.labelMedium),
       ),
       onTap: () => GoRouter.of(context).go('/artists/${artist.id}'),
+      leading: ClipRRect(
+          borderRadius: BorderRadius.circular(10.0),
+          child: Image.asset(artist.image.image)),
     );
+    // CircleAvatar(
+    //   backgroundImage: AssetImage(artist.image.image),
+    // ),
   }
 }
